@@ -5,7 +5,7 @@ import UserTemplate from "@/components/template-components/user-template";
 
 export default async function UserProfile({ params }: { params: { userId: string } }) {
 
-    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${params.userId}`, {
+    const response = await fetch(`${process.env.HOST_URL}/api/user/${params.userId}`, {
         cache: "no-cache",
     });
 
