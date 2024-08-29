@@ -14,7 +14,7 @@ export default function TemplateCard({
   return (
     <div className="p-4 shadow rounded-md max-w-[400px] flex flex-col gap-4 dark:shadow-slate-500 w-80">
       <h3 className="font-bold text-lg">{name}</h3>
-      <Link className="flex gap-2 items-center" href={`/user/${author.id}`}>
+      <Link className="flex gap-2 items-center" href={`${process.env.HOST_URL}/user/${author.id}`}>
         <Avatar>
           <AvatarImage src={author.image} alt="@shadcn" />
           <AvatarFallback>{author.name.substring(0, 2)}</AvatarFallback>
