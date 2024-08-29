@@ -1,9 +1,11 @@
+'use client'
+
 import TemplateCard from "@/components/template-components/template-card";
 import TemplatePageHeader from "@/components/template-components/template-page-header";
 import { TemplateWithAuthor } from "@/lib/types";
 
 export default async function TemplatePage() {
-  const response = await fetch(process.env.NEXTAUTH_URL + "/api/templates", {
+  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/templates`, {
     method: "GET",
     cache: "no-cache"
   });
