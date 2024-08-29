@@ -24,7 +24,7 @@ export default function NavBarMenu() {
                 {session ? (<>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
-                        <Link href={`/user/${session.userId}`}>
+                        <Link href={`${process.env.HOST_URL}/user/${session.userId}`}>
                             My Account</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>

@@ -11,7 +11,7 @@ export default function SignInSignOut() {
     if (session) {
         return (
             <div className="flex gap-4 items-center flex-row-reverse">
-                <Link href={`/user/${session.userId}`} className="border-2 rounded-full">
+                <Link href={`${process.env.HOST_URL}/user/${session.userId}`} className="border-2 rounded-full">
                     <Image src={session.user?.image || ""} alt="User profile image" height={50} width={50} className="rounded-full" />
                 </Link>
                 <Button onClick={() => signOut()}>Sign Out</Button>
