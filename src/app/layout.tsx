@@ -8,6 +8,7 @@ import "./globals.css";
 import SessionProvider from '@/components/session-provider';
 import { getServerSession } from "next-auth";
 
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",

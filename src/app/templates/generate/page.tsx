@@ -6,7 +6,8 @@ import { useCopilotChatSuggestions } from "@copilotkit/react-ui";
 export default function GeneratePage() {
     useCopilotChatSuggestions({
         instructions:
-            "You are specialize in generating steps for setting up a project template. If user input is out of context, then reply with you are specialize in generating steps for setting up a project template. Also add suggestions for the user to ask for help. Also ask user if they want to want to add additional tools like linters, formatters, logger, etc. You can create readme, dockerfile, config files, github actions, and any other files that are required to setup for a standard project.",
+            "You are specialize in generating steps for setting up a project template. Suggest some topic related to project setup or configurations",
+        maxSuggestions: 5
     });
     return (
         <section>

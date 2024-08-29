@@ -1,19 +1,24 @@
-'use client'
-
 import TemplateCard from "@/components/template-components/template-card";
 import TemplatePageHeader from "@/components/template-components/template-page-header";
+import prisma from "@/lib/db";
 import { TemplateWithAuthor } from "@/lib/types";
 
 export default async function TemplatePage() {
-  const response = await fetch(`${process.env.NEXTAUTH_URL}/api/templates`, {
-    method: "GET",
-    cache: "no-cache"
-  });
+  let templates;
+  let error
 
-  let error;
-  let templates: TemplateWithAuthor[] = [];
+  try {
+    templates = await prisma.template.findMany({
+      include: {
+        author: true,
+      }
+    })
 
-  if (!response.ok) {
+  } catch (err) {
+    error = JSON.stringify(err)
+  }
+
+  if (error) {
 
     error = { message: "An error occurred while fetching the templates." };
 
@@ -27,21 +32,23 @@ export default async function TemplatePage() {
     )
   }
 
-  templates = await response.json();
+  if (templates) {
+    return (
+      <section className="p-4">
+        <TemplatePageHeader />
+        <div className="flex flex-wrap gap-4">
+          {templates.map((template) => (
+            <TemplateCard
+              key={template.id}
+              template={template as unknown as TemplateWithAuthor}
+            />
+          ))}
+        </div>
+      </section>
+    );
+  }
 
-  return (
-    <section className="p-4">
-      <TemplatePageHeader />
-      <div className="flex flex-wrap gap-4">
-        {templates.map((template) => (
-          <TemplateCard
-            key={template.id}
-            template={template}
-          />
-        ))}
-      </div>
-    </section>
-  );
+
 }
 
 

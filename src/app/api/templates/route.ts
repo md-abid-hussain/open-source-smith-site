@@ -4,31 +4,31 @@ import { getServerSession } from "next-auth";
 import { authConfig } from "@/lib/auth";
 
 // GET Handler: Fetch all templates
-export async function GET(request: Request) {
-  try {
-    const templates = await prisma.template.findMany({
-      include: {
-        author: true,
-      },
-    });
+// export async function GET(request: Request) {
+//   try {
+//     const templates = await prisma.template.findMany({
+//       include: {
+//         author: true,
+//       },
+//     });
 
-    return new Response(JSON.stringify(templates), {
-      status: 200,
-      headers: {
-        "Cache-Control":
-          "no-store, no-cache, must-revalidate, proxy-revalidate",
-        Pragma: "no-cache",
-        Expires: "0",
-        "Surrogate-Control": "no-store",
-      },
-    });
-  } catch (error) {
-    return new Response(
-      JSON.stringify({ error: "Failed to fetch templates" }),
-      { status: 500 }
-    );
-  }
-}
+//     return new Response(JSON.stringify(templates), {
+//       status: 200,
+//       headers: {
+//         "Cache-Control":
+//           "no-store, no-cache, must-revalidate, proxy-revalidate",
+//         Pragma: "no-cache",
+//         Expires: "0",
+//         "Surrogate-Control": "no-store",
+//       },
+//     });
+//   } catch (error) {
+//     return new Response(
+//       JSON.stringify({ error: "Failed to fetch templates" }),
+//       { status: 500 }
+//     );
+//   }
+// }
 
 // POST Handler: Create a new template
 export async function POST(request: Request) {
