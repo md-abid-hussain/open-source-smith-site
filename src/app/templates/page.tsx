@@ -1,7 +1,6 @@
 'use client'
 
 import TemplateCard from "@/components/template-components/template-card";
-import TemplatePageHeader from "@/components/template-components/template-page-header";
 import { TemplateWithAuthor } from "@/lib/types";
 import { useEffect, useState } from "react";
 
@@ -39,32 +38,27 @@ export default function TemplatePage() {
         <p className="text-lg">Loading...</p>
       </div>
     )
-  }
-
-  if (error) {
+  } else if (error) {
     content = (
-      <section className="p-4">
-        <TemplatePageHeader />
-        <div className="flex justify-center items-center h-96">
-          <p className="text-lg text-red-600">{error}</p>
-        </div>
-      </section>
+      <div className="flex justify-center items-center h-96">
+        <p className="text-lg text-red-600">{error}</p>
+      </div>
     )
-  }
+  } else {
 
-  content = (
-    <section className="p-4">
-      <TemplatePageHeader />
+    content = (
       <div className="flex flex-wrap gap-4">
-        {templates.map((template) => (
+        {templates.length > 0 ? templates.map((template) => (
           <TemplateCard
             key={template.id}
             template={template as unknown as TemplateWithAuthor}
           />
-        ))}
+        )) : (
+          <p className="text-lg">No templates found</p>
+        )}
       </div>
-    </section>
-  )
+    )
+  }
 
   return content;
 }
