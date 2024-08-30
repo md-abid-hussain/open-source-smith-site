@@ -1,11 +1,22 @@
 import AddTemplatePageForm from "@/components/template-components/add-template-component";
+import { authConfig } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
-export default function AddTemplatePage() {
+export default async function AddTemplatePage() {
+
+    const session = await getServerSession(authConfig)
 
     return (
         <div className="hero-height sm:hero-height-sm flex flex-col justify-center py-10">
-            <h1 className="text-3xl text-center font-bold">Add Template</h1>
-            <AddTemplatePageForm />
+            {session ?
+                <>
+                    <h1 className="text-3xl text-center font-bold">Add Template</h1>
+                    <AddTemplatePageForm />
+                </> : (
+                    <div className="flex justify-center items-center h-96">
+                        <p className="text-lg">Please sign in to add a template</p>
+                    </div>
+                )}
         </div>
     );
 }
