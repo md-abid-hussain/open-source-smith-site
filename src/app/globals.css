@@ -74,4 +74,8 @@
   .hero-height-sm {
     min-height: calc(100vh - 7.3rem);
   }
+
+  .template-list-height {
+    min-height: calc(100vh - 14.25rem);
+  }
 }
