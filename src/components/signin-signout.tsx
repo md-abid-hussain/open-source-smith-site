@@ -14,7 +14,9 @@ export default function SignInSignOut() {
                 <Link href='/user/profile' className="border-2 rounded-full">
                     <Image src={session.user?.image || ""} alt="User profile image" height={50} width={50} className="rounded-full" />
                 </Link>
-                <Button onClick={() => signOut()}>Sign Out</Button>
+                <Button onClick={() => signOut({
+                    callbackUrl: "/templates"
+                })}>Sign Out</Button>
             </div>
         )
     }

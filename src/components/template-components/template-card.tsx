@@ -12,7 +12,7 @@ export default function TemplateCard({
   template }: TemplateCardProps) {
   const { name, description, author, githubUrl, tags, defaultBranch, templateType, subtype } = template;
   return (
-    <div className="p-4 shadow rounded-md max-w-[400px] flex flex-col gap-4 dark:shadow-slate-500 w-80">
+    <div className="p-4 shadow rounded-md flex flex-col gap-4 dark:shadow-slate-500 max-w-[400px] w-full">
       <h3 className="font-bold text-lg">{name}</h3>
       <Link className="flex gap-2 items-center" href={`/user/${author.id}`}>
         <Avatar>
@@ -47,3 +47,4 @@ export default function TemplateCard({
     </div>
   );
 }
+

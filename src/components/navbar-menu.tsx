@@ -28,7 +28,9 @@ export default function NavBarMenu() {
                             My Account</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        <Button className="w-full" onClick={() => signOut()}>Sign Out</Button>
+                        <Button className="w-full" onClick={() => signOut({
+                            callbackUrl: "/templates"
+                        })}>Sign Out</Button>
                     </DropdownMenuItem>
                 </>) : (
                     <>

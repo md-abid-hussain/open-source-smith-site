@@ -14,6 +14,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
+import { useRouter } from "next/navigation";
 
 interface DeleteTemplateProp {
     id: string
@@ -22,15 +23,18 @@ interface DeleteTemplateProp {
 export default function DeleteTemplate(
     { id }: DeleteTemplateProp
 ) {
+    const router = useRouter();
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
     const handleDelete = async () => {
         const response = await fetch(`/api/templates/${id}`, {
             method: "DELETE",
+            cache: "no-cache",
         })
 
         if (response.ok) {
             setSuccess("Template deleted successfully");
+            router.push("/templates");
         } else {
             const data = await response.json();
             setError(data.error);
@@ -42,7 +46,7 @@ export default function DeleteTemplate(
 
             {success && (
                 <Alert
-                    className="bg-green-500 text-white absolute right-5 -top-32 max-w-[300px] break-words whitespace-pre-wrap"
+                    className="bg-green-500 text-white absolute top-0 right-5  max-w-[300px] break-words whitespace-pre-wrap"
                     variant="default"
                 >
                     <AlertTitle className="text-sm">{success}</AlertTitle>
@@ -51,13 +55,12 @@ export default function DeleteTemplate(
 
             {error && (
                 <Alert
-                    className="bg-red-500 text-white absolute right-5 -top-32 max-w-[300px] break-words whitespace-pre-wrap"
+                    className="bg-red-500 text-white absolute right-5 top-0 max-w-[300px] break-words whitespace-pre-wrap"
                     variant="default"
                 >
                     <AlertTitle className="text-sm">{error}</AlertTitle>
                 </Alert>
             )}
-            {/* <Button className="block w-full" variant={"destructive"} onClick={handleDelete}>Delete</Button> */}
             <AlertDialog>
                 <AlertDialogTrigger asChild>
                     <Button variant="destructive" className="w-full">Delete Template</Button>
@@ -70,7 +73,7 @@ export default function DeleteTemplate(
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogCancel type="submit">Cancel</AlertDialogCancel>
                         <AlertDialogAction onClick={handleDelete}>Confirm</AlertDialogAction>
                     </AlertDialogFooter>
                 </AlertDialogContent>

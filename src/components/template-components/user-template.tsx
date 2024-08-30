@@ -1,16 +1,18 @@
+'use client'
+
 import { Template } from "@/lib/types";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { getServerSession } from "next-auth"
 import DeleteTemplate from "./delete-template";
+import { useSession } from "next-auth/react";
 
 interface UserTemplateProp {
     template: Template
     userEmail: string
 }
 
-export default async function UserTemplate({ template, userEmail }: UserTemplateProp) {
-    const session = await getServerSession()
+export default function UserTemplate({ template, userEmail }: UserTemplateProp) {
+    const { data: session } = useSession();
 
     const { id, name, description, githubUrl, tags, defaultBranch } = template;
 
