@@ -17,7 +17,7 @@ export default function UserTemplate({ template, userEmail }: UserTemplateProp) 
     const { id, name, description, githubUrl, tags, defaultBranch } = template;
 
     return (
-        <div className="p-4 shadow rounded-md max-w-96 flex flex-col gap-4 dark:shadow-slate-500 w-80">
+        <div className="p-4 shadow rounded-md max-w-96 flex flex-col gap-4 dark:shadow-slate-500 w-80 border">
             <h3 className="font-bold text-lg">{name}</h3>
 
             <p>{description}</p>

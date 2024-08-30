@@ -2,25 +2,75 @@ import prisma from "@/lib/db";
 import { BadRequestResponse } from "@/lib/api-request-response";
 import { getServerSession } from "next-auth";
 import { authConfig } from "@/lib/auth";
+import { type NextRequest } from "next/server";
 
 export const dynamic = "force-dynamic";
 
 // GET Handler: Fetch all templates
-export async function GET(request: Request) {
+export async function GET(request: NextRequest) {
   try {
+    const queryParams = request.nextUrl.searchParams;
+    const templateType = queryParams.get("templateType") || "";
+    const filter = queryParams.get("filter") || "";
+    const tag = queryParams.get("tag") || "";
+    const page = parseInt(queryParams.get("page") || "1", 10);
+    const pageSize = 10;
+
+    const whereClause: any = {
+      AND: [],
+    };
+
+    if (filter) {
+      whereClause.AND.push({
+        name: {
+          contains: filter,
+          mode: "insensitive",
+        },
+      });
+    }
+
+    if (tag) {
+      whereClause.AND.push({
+        tags: {
+          has: tag,
+        },
+      });
+    }
+
+    if (templateType !== "" && templateType !== "all") {
+      whereClause.AND.push({
+        templateType: templateType,
+      });
+    }
+
+    // If no filters are provided, remove the AND clause to avoid empty array issue
+    if (whereClause.AND.length === 0) {
+      delete whereClause.AND;
+    }
+
     const templates = await prisma.template.findMany({
+      where: whereClause,
       include: {
         author: true,
       },
+      skip: (page - 1) * pageSize,
+      take: pageSize,
     });
 
-    return new Response(JSON.stringify(templates), {
+    const totalTemplates = await prisma.template.count({
+      where: whereClause,
+    });
+
+    const totalPages = Math.ceil(totalTemplates / pageSize);
+
+    return new Response(JSON.stringify({ templates, totalPages }), {
       status: 200,
       headers: {
         "Content-Type": "application/json",
       },
     });
   } catch (error) {
+    console.error("Error fetching templates:", error);
     return new Response(
       JSON.stringify({ error: "Failed to fetch templates" }),
       { status: 500 }

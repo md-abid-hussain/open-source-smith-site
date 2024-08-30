@@ -35,7 +35,7 @@ export default function GeneratePage() {
                         onClick={() => setOpen(prev => !prev)}
                         className="mt-4 mx-auto block"
                     >
-                        {open ? "Close" : "Start Generating Steps"}
+                        {open ? "Stop Generating" : "Start Generating Steps"}
                     </Button>
                 </div>
             </div>

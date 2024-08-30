@@ -10,7 +10,10 @@ export default async function AddTemplatePage() {
         <div className="hero-height sm:hero-height-sm flex flex-col justify-center py-10">
             {session ?
                 <>
-                    <h1 className="text-3xl text-center font-bold">Add Template</h1>
+                    <section className="mb-8">
+                        <h1 className="text-3xl text-center font-bold">Add Template</h1>
+                        <p className="text-center text-muted-foreground">Share your template and let the community thrive with your creativity!</p>
+                    </section>
                     <AddTemplatePageForm />
                 </> : (
                     <div className="flex justify-center items-center h-96">

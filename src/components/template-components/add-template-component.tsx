@@ -161,7 +161,7 @@ export default function AddTemplatePageForm() {
             )}
 
             <form
-                className="min-w-80 max-w-[700px] flex flex-col mx-auto"
+                className="min-w-[300px] max-w-[700px] flex flex-col mx-auto"
                 onSubmit={handleSubmit}
             >
                 <Select
