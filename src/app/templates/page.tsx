@@ -9,6 +9,7 @@ export default function TemplatePage() {
   const [templates, setTemplates] = useState<TemplateWithAuthor[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+
   useEffect(() => {
     const fetchTemplates = async () => {
       try {
