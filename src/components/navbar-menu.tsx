@@ -15,16 +15,16 @@ import { signOut, signIn } from "next-auth/react"
 
 export default function NavBarMenu() {
     const { data: session } = useSession()
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger><LucideMenu /></DropdownMenuTrigger>
             <DropdownMenuContent>
                 <DropdownMenuItem className="hover:cursor-pointer"><Link href="/templates">Templates</Link></DropdownMenuItem>
-
                 {session ? (<>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
-                        <Link href={`${process.env.HOST_URL}/user/${session.userId}`}>
+                        <Link href='/user/profile'>
                             My Account</Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
@@ -38,8 +38,6 @@ export default function NavBarMenu() {
                         </DropdownMenuItem>
                     </>
                 )}
-
-
             </DropdownMenuContent>
         </DropdownMenu>
     )
