@@ -17,8 +17,8 @@ export default function GeneratePage() {
     });
 
     return (
-        <section className={`min-h-screen ${!open ? 'flex flex-col justify-center' : ''}`}>
-            <div className="my-8 p-8">
+        <section className={`hero-height sm:hero-height-sm ${!open ? 'flex flex-col justify-center' : ''}`}>
+            <div className="p-8">
                 <h1 className="text-3xl font-bold text-center mb-4">
                     Generate Steps for Setting Up a Project Template
                 </h1>
@@ -40,7 +40,7 @@ export default function GeneratePage() {
                 </div>
             </div>
 
-            {open && <div className="relative p-4 border-2 m-2 rounded-md h-[700px] min-h-screen w-[320px] min-w-[90%] mx-auto mb-4">
+            {open && <div className="relative p-4 border-2 m-2 rounded-md h-[700px] min-h-[95vh] w-[320px] min-w-[90%] mx-auto mb-4">
                 <CopilotChat
                     className="min-h-full overflow-auto flex-col-reverse"
                     labels={{
