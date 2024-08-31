@@ -1,8 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "../ui/button";
-import Link from "next/link";
 import { TemplateWithAuthor } from "@/lib/types";
 import { Badge } from '@/components/ui/badge';
+import Link from "next/link";
 
 interface TemplateCardProps {
   template: TemplateWithAuthor
@@ -10,10 +10,10 @@ interface TemplateCardProps {
 
 export default function TemplateCard({
   template }: TemplateCardProps) {
-  const { name, description, author, githubUrl, tags, defaultBranch, templateType, subtype } = template;
+  const { id, name, description, author, githubUrl, tags, defaultBranch, templateType, subtype } = template;
   return (
     <div className="p-4 shadow rounded-md flex flex-col gap-4 dark:shadow-slate-500 max-w-[400px] min-w-full border">
-      <h3 className="font-bold text-lg">{name}</h3>
+      <Link href={`/templates/id/${id}`}><h3 className="font-bold text-lg">{name}</h3></Link>
       <Link className="flex gap-2 items-center" href={`/user/${author.id}`}>
         <Avatar>
           <AvatarImage src={author.image} alt="@shadcn" />

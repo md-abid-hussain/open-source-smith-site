@@ -204,6 +204,7 @@ export default function AddTemplatePageForm() {
                     id="description"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Enter a description explaining the use and purpose of the template"
                     required
                 />
                 <Label className="text-lg mb-2 mt-4">Tags</Label>

@@ -25,9 +25,9 @@ export default async function RootLayout({
 }>) {
   const session = await getServerSession();
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <SessionProvider session={session}>
-        <body className={cn("min-h-screen bg-background font-sans antialiased flex flex-col scroll-smooth", fontSans.variable)}>
+        <body className={cn("min-h-screen bg-background font-sans antialiased flex flex-col", fontSans.variable)}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
     const filter = queryParams.get("filter") || "";
     const tag = queryParams.get("tag") || "";
     const page = parseInt(queryParams.get("page") || "1", 10);
-    const pageSize = 10;
+    const pageSize = parseInt(queryParams.get("per_page") || "5", 10);
 
     const whereClause: any = {
       AND: [],

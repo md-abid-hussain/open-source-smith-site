@@ -4,8 +4,8 @@ import Link from "next/link"
 
 export default function HeroSection() {
     return (
-        <section className="hero-height sm:hero-height-sm grid grid-cols-1 md:grid-cols-[50%,50%] gap-4 min-w-80 max-w-[1400px] mx-auto place-items-center px-4 sm:px-8 py-10">
-            <div className="flex flex-col gap-4 md:gap-8 items-center md:items-start text-center md:text-left">
+        <section id="introduction" className="min-h-screen grid grid-cols-1 md:grid-cols-[50%,50%] gap-4 min-w-80 max-w-[1400px] mx-auto place-items-center px-4 sm:px-8 py-10 scroll-m-32 mt-16">
+            <div className="flex flex-col gap-4 md:gap-8 items-center md:items-start text-center md:text-left mb-8">
                 <h1 className="scroll-m-20 pb-2 text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight first:mt-0">
                     Empower Your Development with Curated Open Source Templates
                 </h1>

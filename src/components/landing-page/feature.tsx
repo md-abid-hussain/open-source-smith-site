@@ -1,6 +1,6 @@
 export default function Feature() {
     return (
-        <section className="py-10 px-4 sm:px-8 max-w-[1400px] mx-auto">
+        <section id="why-choose-our-platform" className="py-10 px-4 sm:px-8 max-w-[1400px] mx-auto min-h-screen flex flex-col justify-center scroll-m-32">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-center mb-8">
                 Why Choose Our Platform?
             </h2>
