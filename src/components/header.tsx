@@ -24,7 +24,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="flex justify-between items-center p-2 sm:p-4 border-b flex-wrap sticky top-0 bg-background">
+            <header className="flex justify-between items-center p-2 sm:p-4 border-b flex-wrap sticky top-0 bg-background z-10">
                 <section className="flex flex-row-reverse items-center">
                     <div>
                         <Link href='/'>
