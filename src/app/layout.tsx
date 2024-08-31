@@ -3,8 +3,7 @@ import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import AnalyticsLayout from "@/components/analytics-layout";
 import "./globals.css";
 
 import SessionProvider from '@/components/session-provider';
@@ -38,6 +37,7 @@ export default async function RootLayout({
 
             <main className="flex-1">
               {children}
+              <AnalyticsLayout />
             </main>
           </ThemeProvider>
         </body>

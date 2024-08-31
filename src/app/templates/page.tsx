@@ -73,7 +73,7 @@ export default function TemplatePage() {
           <AccordionContent>
             <div className="mb-4 flex gap-4 flex-wrap px-2">
               <div className="flex-1">
-                <Label className="mb-4">
+                <Label className="block mb-2">
                   Filter by name
                 </Label>
                 <Input
@@ -85,7 +85,7 @@ export default function TemplatePage() {
                 />
               </div>
               <div className="flex-1">
-                <Label className="mb-4" htmlFor="tag">
+                <Label className="mb-2 block" htmlFor="tag">
                   Filter by tag
                 </Label>
                 <Input
@@ -97,7 +97,7 @@ export default function TemplatePage() {
                 />
               </div>
               <div className="flex-1">
-                <Label className="mb-4">
+                <Label className="mb-2 block">
                   Filter by template type
                 </Label>
                 <div className="w-[300px] min-w-full">
@@ -131,7 +131,7 @@ export default function TemplatePage() {
                 </div>
               </div>
               <div className="flex-1">
-                <Label className="mb-4  w-[300px]">
+                <Label className="mb-2 block w-[300px]">
                   Templates per page
                 </Label>
                 <div className="w-[300px] min-w-full">

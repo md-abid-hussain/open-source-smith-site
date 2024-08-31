@@ -1,13 +1,28 @@
 import {
     Breadcrumb,
     BreadcrumbItem,
-    BreadcrumbLink,
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 import { Button } from "@/components/ui/button";
 import { TemplateWithAuthor } from "@/lib/types";
 import Link from "next/link";
+import CodeBlockWithCopyButton from "@/components/copy-clipboard";
+
+function extractUsernameRepo(githubUrl: string): string {
+    // Regular expression to match GitHub URL and capture username and repo
+    const regex = /https:\/\/github\.com\/([^\/]+)\/([^\/]+)(?:\/|$)/;
+    const match = githubUrl.match(regex);
+
+    if (match) {
+        const username = match[1];
+        const repo = match[2];
+        return `${username}@${repo}`;
+    } else {
+        // Return null if the URL does not match the expected pattern
+        return "";
+    }
+}
 
 export default async function SingleTemplatePage({ params }: { params: { templateId: string } }) {
 
@@ -75,6 +90,10 @@ export default async function SingleTemplatePage({ params }: { params: { templat
                 </div>
                 <div>
                     <p><span className="font-semibold">Tags:</span> {template.tags.join(", ")}</p>
+                </div>
+                <div>
+                    <p className="pb-2 font-semibold">Use this template:</p>
+                    <CodeBlockWithCopyButton data={extractUsernameRepo(template.githubUrl)} />
                 </div>
             </div>
             <div className="flex gap-4 flex-wrap">
