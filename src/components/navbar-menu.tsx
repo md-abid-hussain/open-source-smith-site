@@ -21,6 +21,7 @@ export default function NavBarMenu() {
             <DropdownMenuTrigger><LucideMenu /></DropdownMenuTrigger>
             <DropdownMenuContent>
                 <DropdownMenuItem className="hover:cursor-pointer"><Link href="/templates">Templates</Link></DropdownMenuItem>
+                <DropdownMenuItem className="hover:cursor-pointer"><a href="https://amomynus.mintlify.app/introduction" target="_blank">Documentation</a></DropdownMenuItem>
                 {session ? (<>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>

@@ -63,6 +63,13 @@ export default function BuiltUsing() {
                         NextAuth provides us with secure and flexible authentication solutions, ensuring user data is protected.
                     </p>
                 </div>
+                <div className="p-6 border rounded-lg shadow-sm">
+                    <Image src="/mintlify.png" alt="NextAuth" width={50} height={50} />
+                    <h3 className="text-xl font-semibold mb-4">Mintlify</h3>
+                    <p>
+                        Mintlify is our go-to tool for static site generation, enabling us to build fast and efficient websites.
+                    </p>
+                </div>
             </div>
         </section>
     );

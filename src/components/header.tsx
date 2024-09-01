@@ -29,10 +29,10 @@ export default function Header() {
                     <div>
                         <Link href='/'>
                             <h2 className="scroll-m-20 text-2xl sm:text-3xl font-bold tracking-tight flex gap-4">
-                                <span>OpenSourceForge</span>
+                                <span>OpenSourceSmith</span>
                             </h2>
                             <p className="sm:text-xl text-muted-foreground">
-                                Forge your future with open source
+                                Forge your project with ease
                             </p>
                         </Link>
                     </div>
@@ -42,6 +42,7 @@ export default function Header() {
                 </section>
                 <section className="gap-4 items-center md:flex hidden">
                     <ThemeToggle />
+                    <a className="hover:underline" href="https://amomynus.mintlify.app/introduction" target="_blank">Docs</a>
                     <Link href="/templates" className="hover:underline border-r-2 pr-4 border-black dark:border-white">Templates</Link>
                     <SignInSignOut />
                 </section>
