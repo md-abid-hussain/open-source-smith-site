@@ -23,6 +23,10 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 import { useRouter } from "next/navigation";
 
+const frontendSubTypes = Object.values(FrontendSubType);
+const backendSubType = Object.values(BackendSubType);
+const fullstackSubType = Object.values(FullstackSubType);
+
 export default function AddTemplatePageForm() {
     const router = useRouter();
     const [name, setName] = useState("");
@@ -196,6 +200,7 @@ export default function AddTemplatePageForm() {
                     id="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    placeholder="Enter the name of the template"
                     required
                 />
                 <Label className="text-lg mb-2 mt-4">Description</Label>
@@ -215,6 +220,7 @@ export default function AddTemplatePageForm() {
                         id="tag"
                         value={tag}
                         onChange={(e) => setTag(e.target.value)}
+                        placeholder="Enter tags separated by space"
                     />
                     <Button type="button" onClick={handleAddTag}>
                         Add Tag
@@ -276,53 +282,29 @@ export default function AddTemplatePageForm() {
                             <SelectGroup>
                                 {templateType === TemplateType.FRONTEND && (
                                     <>
-                                        <SelectItem value={FrontendSubType.REACT}>
-                                            React
-                                        </SelectItem>
-                                        <SelectItem value={FrontendSubType.ANGULAR}>
-                                            Angular
-                                        </SelectItem>
-                                        <SelectItem value={FrontendSubType.VUE}>
-                                            Vue
-                                        </SelectItem>
-                                        <SelectItem value={FrontendSubType.OTHER}>
-                                            Other
-                                        </SelectItem>
+                                        {frontendSubTypes.map(subType => (
+                                            <SelectItem key={subType} value={subType}>
+                                                {subType.charAt(0) + subType.slice(1).toLowerCase()}
+                                            </SelectItem>
+                                        ))}
                                     </>
                                 )}
                                 {templateType === TemplateType.BACKEND && (
                                     <>
-                                        <SelectItem value={BackendSubType.NODEJS}>
-                                            Node.js
-                                        </SelectItem>
-                                        <SelectItem value={BackendSubType.RUBY}>
-                                            Ruby
-                                        </SelectItem>
-                                        <SelectItem value={BackendSubType.PYTHON}>
-                                            Python
-                                        </SelectItem>
-                                        <SelectItem value={BackendSubType.JAVA}>
-                                            Java
-                                        </SelectItem>
-                                        <SelectItem value={BackendSubType.OTHER}>
-                                            Other
-                                        </SelectItem>
+                                        {backendSubType.map(subType => (
+                                            <SelectItem key={subType} value={subType}>
+                                                {subType.charAt(0) + subType.slice(1).toLowerCase()}
+                                            </SelectItem>
+                                        ))}
                                     </>
                                 )}
                                 {templateType === TemplateType.FULLSTACK && (
                                     <>
-                                        <SelectItem value={FullstackSubType.MERN}>
-                                            MERN
-                                        </SelectItem>
-                                        <SelectItem value={FullstackSubType.MEAN}>
-                                            MEAN
-                                        </SelectItem>
-                                        <SelectItem value={FullstackSubType.LAMP}>
-                                            LAMP
-                                        </SelectItem>
-                                        <SelectItem value={FullstackSubType.OTHER}>
-                                            Other
-                                        </SelectItem>
+                                        {fullstackSubType.map(subType => (
+                                            <SelectItem key={subType} value={subType}>
+                                                {subType.charAt(0) + subType.slice(1).toLowerCase()}
+                                            </SelectItem>
+                                        ))}
                                     </>
                                 )}
                                 {templateType === TemplateType.MISCELLANEOUS && (

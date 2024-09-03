@@ -14,9 +14,10 @@ const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 })
+
 export const metadata: Metadata = {
-  title: "Open Source Smith",
-  description: "A platform for sharing and discovering open source templates",
+  title: "OpenSourceSmith",
+  description: "A platform for sharing and discovering open source templates. Find the perfect template for your next project. Share your own templates with the community. Generate project setup steps with our AI.",
 };
 
 export default async function RootLayout({

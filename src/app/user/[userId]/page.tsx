@@ -3,6 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import UserTemplate from "@/components/template-components/user-template";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "OpenSourceSmith | User Profile",
+    description: "Discover templates added by a user on OpenSourceSmith. Find the perfect template for your next project. Share your own templates with the community. Generate project setup steps with our AI.",
+};
+
 export default async function UserProfile({ params }: { params: { userId: string } }) {
 
     const response = await fetch(`${process.env.HOST_URL}/api/user/${params.userId}`, {

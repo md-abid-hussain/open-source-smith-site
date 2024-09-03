@@ -1,6 +1,12 @@
 import AddTemplatePageForm from "@/components/template-components/add-template-component";
 import { authConfig } from "@/lib/auth";
 import { getServerSession } from "next-auth";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "OpenSourceSmith | Add Template",
+    description: "Share your template and let the community thrive with your creativity!",
+};
 
 export default async function AddTemplatePage() {
 

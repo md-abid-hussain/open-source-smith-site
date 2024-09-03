@@ -9,6 +9,13 @@ import { TemplateWithAuthor } from "@/lib/types";
 import Link from "next/link";
 import CodeBlockWithCopyButton from "@/components/copy-clipboard";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "OpenSourceSmith | Template",
+    description: "Discover and use open-source templates for your next project. Share your own templates with the community. Generate project setup steps with our AI. From frontend, backend, to full-stack templates, we have everything you need. Get started now with templates from the community, for the community. Includes templates for Python, JavaScript, Java, and more.",
+};
+
 function extractUsernameRepo(githubUrl: string): string {
     // Regular expression to match GitHub URL and capture username and repo
     const regex = /https:\/\/github\.com\/([^\/]+)\/([^\/]+)(?:\/|$)/;

@@ -6,6 +6,8 @@ export enum FrontendSubType {
   REACT = "React",
   ANGULAR = "Angular",
   VUE = "Vue",
+  ASTRO = "Astro",
+  SVELTE = "Svelte",
   OTHER = "Other",
 }
 
@@ -14,10 +16,15 @@ export enum BackendSubType {
   RUBY = "Ruby",
   PYTHON = "Python",
   JAVA = "Java",
+  GO = "Go",
+  PHP = "PHP",
   OTHER = "Other",
 }
 
 export enum FullstackSubType {
+  DJANGO = "Django",
+  RAILS = "Rails",
+  SPRING = "Spring",
   MERN = "MERN",
   MEAN = "MEAN",
   LAMP = "LAMP",
@@ -27,6 +34,7 @@ export enum FullstackSubType {
 export enum MiscellaneousSubType {
   DOCKER = "Docker",
   KUBERNETES = "Kubernetes",
+  TERRAFORM = "Terraform",
   OTHER = "Other",
 }
 
