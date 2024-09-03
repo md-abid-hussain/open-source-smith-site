@@ -203,12 +203,13 @@ function TemplateList({ deferredFilter, deferredTag, page, templateType, templat
   const [templates, setTemplates] = useState<TemplateWithAuthor[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const { signal } = new AbortController()
 
   useEffect(() => {
     const fetchTemplates = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`/api/templates?filter=${deferredFilter}&tag=${deferredTag}&page=${page}&templateType=${templateType}&per_page=${templatesPerPage}`, { cache: "no-cache" });
+        const response = await fetch(`/api/templates?filter=${deferredFilter}&tag=${deferredTag}&page=${page}&templateType=${templateType}&per_page=${templatesPerPage}`, { signal });
         if (response.ok) {
           const data = await response.json();
           setTemplates(data.templates);
