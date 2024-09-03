@@ -56,9 +56,9 @@ export default function GeneratePage() {
                 </div>
             </div>
 
-            {open && <div className="relative p-4 border-2 m-2 rounded-md h-[700px] min-h-[95vh] w-[320px] min-w-[90%] mx-auto mb-4">
+            {open && <div className="relative border-2rounded-md">
                 <CopilotChat
-                    className="min-h-full overflow-auto flex-col-reverse"
+                    className="min-h-full overflow-auto flex-col-reverse mb-6"
                     labels={{
                         title: "Generate Steps for Setting Up a Project Template",
                         initial: introMessage,
